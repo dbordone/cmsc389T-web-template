@@ -3,6 +3,14 @@ version: '3'
 services:
   nodejs:
     #fill out the configuration here
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      -"8080:80"
+    image: webpage
+    container_name: webpage
+    restart: unless-stopped
     networks:
       - app-network
   
@@ -28,7 +36,7 @@ volumes:
     driver_opts:
       type: none
       #fill out your absolute path to your folder here
-      device: /absolute/path/to/web/template/folder
+      device: C:\Users\domin\Documents\cmsc389T-spring22\Projects\cmsc389T-web-template
       o: bind
 
 networks:
